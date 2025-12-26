@@ -72,7 +72,7 @@ A modern, single-user Task Management System built with **Laravel 11**, **Tailwi
 |------------|---------|
 | **Laravel 11** | PHP Framework (Backend) |
 | **PHP 8.4** | Programming Language |
-| **SQLite** | Database (default, switchable to MySQL) |
+| **MySQL 8.0** | Database |
 | **TailwindCSS** | CSS Framework (UI Styling) |
 | **Blade** | Templating Engine |
 | **PHPUnit** | Testing Framework |
@@ -83,7 +83,7 @@ A modern, single-user Task Management System built with **Laravel 11**, **Tailwi
 
 - **PHP** >= 8.2
 - **Composer** (PHP dependency manager)
-- **SQLite** or **MySQL** (database)
+- **MySQL** >= 8.0
 - **Git** (optional, for version control)
 
 ---
@@ -107,11 +107,7 @@ Copy the example environment file:
 cp .env.example .env
 ```
 
-**For SQLite (Default):**
-No additional configuration needed. The database file will be created automatically.
-
-**For MySQL:**
-Update `.env` with your database credentials:
+Update `.env` with your MySQL database credentials:
 ```env
 DB_CONNECTION=mysql
 DB_HOST=127.0.0.1
@@ -119,6 +115,11 @@ DB_PORT=3306
 DB_DATABASE=task_manager
 DB_USERNAME=root
 DB_PASSWORD=your_password
+```
+
+**Create the database:**
+```sql
+CREATE DATABASE task_manager;
 ```
 
 ### Step 4: Generate Application Key
