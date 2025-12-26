@@ -143,22 +143,22 @@ Visit **http://localhost:8000** in your browser.
 ```mermaid
 graph TD
     A[User visits /] --> B[Redirects to /tasks]
-    B --> C[TaskController@index]
+    B --> C[TaskController index method]
     C --> D[Fetch all tasks from DB]
-    D --> E[Return tasks/index.blade.php]
+    D --> E[Return tasks index view]
     E --> F[Display task list]
     
-    F --> G[User clicks 'New Task']
-    G --> H[TaskController@create]
-    H --> I[Show tasks/create.blade.php]
+    F --> G[User clicks New Task]
+    G --> H[TaskController create method]
+    H --> I[Show create form view]
     
     I --> J[User submits form]
     J --> K[StoreTaskRequest validates]
     K --> L{Valid?}
-    L -->|Yes| M[TaskController@store]
+    L -->|Yes| M[TaskController store method]
     L -->|No| N[Return with errors]
     M --> O[Save to database]
-    O --> P[Redirect to /tasks with success message]
+    O --> P[Redirect to /tasks with success]
 ```
 
 ### MVC Architecture Explained
