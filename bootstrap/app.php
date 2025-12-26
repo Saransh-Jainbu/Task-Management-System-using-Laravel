@@ -11,16 +11,7 @@ return Application::configure(basePath: dirname(__DIR__))
         health: '/up',
     )
     ->withMiddleware(function (Middleware $middleware): void {
-        $middleware->web(append: [
-            // \App\Http\Middleware\TrustHosts::class, // This is commented out in the provided list
-            \App\Http\Middleware\TrustProxies::class,
-            \Illuminate\Http\Middleware\HandleCors::class,
-            \App\Http\Middleware\PreventRequestsDuringMaintenance::class,
-            \Illuminate\Foundation\Http\Middleware\ValidatePostSize::class,
-            \App\Http\Middleware\TrimStrings::class,
-            \Illuminate\Foundation\Http\Middleware\ConvertEmptyStringsToNull::class,
-            \App\Http\Middleware\ForceHttps::class, // Force HTTPS in production
-        ]);
+        //
     })
     ->withExceptions(function (Exceptions $exceptions): void {
         //
