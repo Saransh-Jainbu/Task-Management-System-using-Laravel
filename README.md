@@ -55,10 +55,12 @@ A modern, single-user Task Management System built with **Laravel 11**, **Tailwi
 ## 📸 Screenshots
 
 ### Dashboard
-![Dashboard](https://via.placeholder.com/800x400?text=Task+Dashboard)
+![Dashboard](public/images/screenshots/dashboard.png)
+*Task listing with priority badges, completion status, and quick actions*
 
 ### Create Task
-![Create Task](https://via.placeholder.com/800x400?text=Create+Task+Form)
+![Create Task](public/images/screenshots/create-task.jpeg)
+*Clean form interface with priority selection and validation*
 
 ---
 
@@ -508,8 +510,8 @@ This project is open-source and available under the [MIT License](LICENSE).
 ## 👤 Author
 
 **Your Name**
-- GitHub: [@yourusername](https://github.com/yourusername)
-- Email: your.email@example.com
+- GitHub: [@Saransh-Jainbu](https://github.com/Saransh-Jainbu/)
+- Email: Saranshj647@gmail.com
 
 ---
 
