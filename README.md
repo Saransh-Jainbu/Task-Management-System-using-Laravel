@@ -362,7 +362,7 @@ This project uses **GitHub Actions** for automated testing on every push/pull re
 ### Workflows
 
 #### 1. Laravel Tests (`laravel-tests.yml`)
-- ✅ Runs on PHP 8.2, 8.3, and 8.4
+- ✅ Runs on PHP 8.4
 - ✅ Executes all PHPUnit tests
 - ✅ Tests on SQLite database
 - ✅ Uploads logs if tests fail
