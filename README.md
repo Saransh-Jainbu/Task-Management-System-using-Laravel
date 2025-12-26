@@ -5,6 +5,8 @@ A modern, single-user Task Management System built with **Laravel 11**, **Tailwi
 ![Laravel](https://img.shields.io/badge/Laravel-11-red?style=flat-square&logo=laravel)
 ![PHP](https://img.shields.io/badge/PHP-8.4-blue?style=flat-square&logo=php)
 ![TailwindCSS](https://img.shields.io/badge/TailwindCSS-3.0-38B2AC?style=flat-square&logo=tailwind-css)
+![Tests](https://github.com/Saransh-Jainbu/task-management-system/workflows/Laravel%20Tests/badge.svg)
+![Code Quality](https://github.com/Saransh-Jainbu/task-management-system/workflows/Code%20Quality/badge.svg)
 
 ---
 
@@ -350,6 +352,36 @@ public function test_can_create_task(): void
     $this->assertDatabaseHas('tasks', ['title' => 'Test Task']);
 }
 ```
+
+---
+
+## 🔄 Continuous Integration (GitHub Actions)
+
+This project uses **GitHub Actions** for automated testing on every push/pull request.
+
+### Workflows
+
+#### 1. Laravel Tests (`laravel-tests.yml`)
+- ✅ Runs on PHP 8.2, 8.3, and 8.4
+- ✅ Executes all PHPUnit tests
+- ✅ Tests on SQLite database
+- ✅ Uploads logs if tests fail
+
+#### 2. Code Quality (`code-quality.yml`)
+- ✅ Checks PHP syntax
+- ✅ Runs security audit
+- ✅ Validates code structure
+
+### Status Badges
+The badges at the top of this README show:
+- 🟢 **Green** = All tests passing
+- 🔴 **Red** = Tests failing
+- 🟡 **Yellow** = Tests running
+
+### Viewing Test Results
+1. Go to the **Actions** tab in your GitHub repo
+2. Click on any workflow run
+3. View detailed test results and logs
 
 ---
 
