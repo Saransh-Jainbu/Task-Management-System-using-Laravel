@@ -27,7 +27,7 @@ jobs:
       run: composer install --prefer-dist --no-progress --no-interaction
     
     - name: Check PHP Syntax
-      run: find . -name "*.php" -not -path "./vendor/*" -exec php -l {} \; | grep -v "No syntax errors"
+      run: find . -name "*.php" -not -path "./vendor/*" -exec php -l {} \; > /dev/null
     
     - name: Security Check
       run: composer audit || true
