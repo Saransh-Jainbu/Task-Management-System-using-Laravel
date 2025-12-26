@@ -78,7 +78,7 @@ Copy the output and paste it as `APP_KEY` value.
 
 Railway will automatically:
 - ✅ Install dependencies (`composer install`)
-- ✅ Run migrations (`php artisan migrate --force`)
+- ✅ Run migrations (`php artisan migrate --force`) 
 - ✅ Start the server
 - ✅ Give you a public URL
 
