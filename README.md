@@ -1,10 +1,17 @@
 # Task Management System
 
-A modern, single-user Task Management System built with **Laravel 11**, **TailwindCSS**, and **SQLite/MySQL**. This application demonstrates clean MVC architecture, proper validation, and modern UI/UX design principles.
+A modern, single-user Task Management System built with **Laravel 11**, **TailwindCSS**, and **MySQL**. This application demonstrates clean MVC architecture, proper validation, modern UI/UX design principles, and includes a beautiful dark mode feature.
+
+## 🌐 Live Demo
+
+**[View Live Demo →](https://mellow-dream-production.up.railway.app/)**
+
+> **Note:** This is a public demo. Please be respectful and don't spam or delete others' tasks. The database is shared for demonstration purposes.
 
 ![Laravel](https://img.shields.io/badge/Laravel-11-red?style=flat-square&logo=laravel)
 ![PHP](https://img.shields.io/badge/PHP-8.4-blue?style=flat-square&logo=php)
 ![TailwindCSS](https://img.shields.io/badge/TailwindCSS-3.0-38B2AC?style=flat-square&logo=tailwind-css)
+![License](https://img.shields.io/badge/License-MIT-green?style=flat-square)
 ![Tests](https://github.com/Saransh-Jainbu/task-management-system/workflows/Laravel%20Tests/badge.svg)
 ![Code Quality](https://github.com/Saransh-Jainbu/task-management-system/workflows/Code%20Quality/badge.svg)
 
@@ -34,14 +41,16 @@ A modern, single-user Task Management System built with **Laravel 11**, **Tailwi
 - ✅ **Update Tasks** - Edit existing task details
 - ✅ **Delete Tasks** - Remove tasks with confirmation
 - ✅ **Toggle Status** - Quick one-click completion toggle
+- 🎯 **Priority Filtering** - Filter tasks by Low, Medium, or High priority
 
 ### UI/UX Features
 - 🎨 **Modern Design** - Clean, professional interface with TailwindCSS
+- 🌙 **Dark Mode** - Beautiful pure black dark theme with toggle
 - 📱 **Responsive Layout** - Works on desktop, tablet, and mobile
 - 🎯 **Priority Badges** - Color-coded visual indicators (Red/Yellow/Green)
 - ⏱️ **Human Timestamps** - "Created 2 hours ago" format
 - ✨ **Smooth Animations** - Hover effects and transitions
-- 💬 **Flash Messages** - Success/error notifications
+- � **Toast Notifications** - Modern Notyf toast messages
 - 🔍 **Empty States** - Helpful messages when no tasks exist
 
 ### Technical Features
@@ -51,6 +60,7 @@ A modern, single-user Task Management System built with **Laravel 11**, **Tailwi
 - 🏭 **Factory Pattern** - Database seeding and testing support
 - 🧪 **Feature Tests** - Automated testing with PHPUnit
 - 📊 **Task Statistics** - Completion tracking
+- 🚀 **Railway Deployment** - Production-ready deployment configuration
 
 ---
 
@@ -544,13 +554,93 @@ This project is open-source and available under the [MIT License](LICENSE).
 - GitHub: [@Saransh-Jainbu](https://github.com/Saransh-Jainbu/)
 - Email: Saranshj647@gmail.com
 
+
+
+
 ---
 
-## 🙏 Acknowledgments
+## 🚀 Railway Deployment
 
-- Laravel Team for the amazing framework
-- TailwindCSS for the utility-first CSS framework
-- The open-source community
+This project is deployed on [Railway](https://railway.app/) and is live at: **[https://mellow-dream-production.up.railway.app/](https://mellow-dream-production.up.railway.app/)**
+
+### Prerequisites
+
+- Railway CLI installed (`npm install -g @railway/cli` or download from [railway.app](https://docs.railway.app/develop/cli))
+- Railway account
+- Git repository
+
+### Deployment Steps
+
+1. **Login to Railway**
+   ```bash
+   railway login
+   ```
+
+2. **Initialize Railway Project**
+   ```bash
+   railway init
+   ```
+   - Select your workspace
+   - Enter project name (e.g., "Task-Management-System")
+
+3. **Add MySQL Database**
+   ```bash
+   railway add --database mysql
+   ```
+
+4. **Link to Your Service**
+   ```bash
+   railway link
+   ```
+   - Select your project
+   - Select your service
+
+5. **Set Environment Variables**
+   
+   In Railway Dashboard → Your Service → Variables, add:
+   
+   ```env
+   APP_NAME=Task Management System
+   APP_ENV=production
+   APP_DEBUG=false
+   APP_KEY=base64:YOUR_GENERATED_KEY_HERE
+   LOG_CHANNEL=stack
+   LOG_LEVEL=error
+   DB_CONNECTION=mysql
+   SESSION_DRIVER=file
+   CACHE_STORE=file
+   QUEUE_CONNECTION=sync
+   ```
+
+6. **Reference MySQL Variables**
+   
+   Add these references from your MySQL service:
+   - `MYSQLHOST` → `DB_HOST`
+   - `MYSQLPORT` → `DB_PORT`
+   - `MYSQLDATABASE` → `DB_DATABASE`
+   - `MYSQLUSER` → `DB_USERNAME`
+   - `MYSQLPASSWORD` → `DB_PASSWORD`
+
+7. **Deploy**
+   ```bash
+   railway up
+   ```
+
+### Deployment Files
+
+The project includes these Railway-specific files:
+
+- **`Procfile`** - Defines the start command
+- **`deploy.sh`** - Deployment script (runs migrations, caches config)
+- **`railway.json`** - Railway configuration
+
+### Auto-Deployment
+
+To enable auto-deployment from GitHub:
+
+1. Go to Railway Dashboard → Your Service → Settings
+2. Connect your GitHub repository
+3. Enable "Auto-Deploy" on push to main branch
 
 ---
 
@@ -560,6 +650,13 @@ This project is open-source and available under the [MIT License](LICENSE).
 - **Files Created:** 15 key files
 - **Test Coverage:** 6 tests, 100% pass rate
 - **Development Time:** Completed in efficient timeframe
+- **Deployment:** Live on Railway
+
+---
+
+## 📄 License
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
 ---
 
