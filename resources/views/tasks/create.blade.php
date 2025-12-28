@@ -3,7 +3,7 @@
 @section('content')
 <div class="max-w-2xl mx-auto">
     <div class="flex items-center justify-between mb-8">
-        <h1 class="text-3xl font-bold text-gray-900">Create New Task</h1>
+        <h1 class="text-3xl font-bold text-gray-900 dark:text-white">Create New Task</h1>
         <a href="{{ route('tasks.index') }}" class="text-gray-600 hover:text-indigo-600 font-medium flex items-center transition">
             <svg class="w-4 h-4 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"></path>
@@ -12,28 +12,28 @@
         </a>
     </div>
 
-    <div class="bg-white rounded-xl shadow-sm border border-gray-100 p-8">
+    <div class="bg-white dark:bg-discord-darker rounded-xl shadow-sm border border-gray-100 dark:border-discord-light/20 p-8">
         <form action="{{ route('tasks.store') }}" method="POST">
             @csrf
 
             <div class="mb-6">
-                <label for="title" class="block text-sm font-semibold text-gray-700 mb-2">Task Title <span class="text-red-500">*</span></label>
-                <input type="text" name="title" id="title" class="w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 transition @error('title') border-red-500 @else border-gray-300 @enderror" value="{{ old('title') }}" placeholder="What needs to be done?">
+                <label for="title" class="block text-sm font-semibold text-gray-700 dark:text-gray-300 mb-2">Task Title <span class="text-red-500">*</span></label>
+                <input type="text" name="title" id="title" class="w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 transition bg-white dark:bg-discord-darkest dark:border-discord-light/20 dark:text-white @error('title') border-red-500 @else border-gray-300 dark:border-discord-light/20 @enderror" value="{{ old('title') }}" placeholder="What needs to be done?">
                 @error('title')
                     <p class="mt-1 text-sm text-red-500">{{ $message }}</p>
                 @enderror
             </div>
 
             <div class="mb-6">
-                <label for="description" class="block text-sm font-semibold text-gray-700 mb-2">Description</label>
-                <textarea name="description" id="description" rows="4" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 transition" placeholder="Add some details...">{{ old('description') }}</textarea>
+                <label for="description" class="block text-sm font-semibold text-gray-700 dark:text-gray-300 mb-2">Description</label>
+                <textarea name="description" id="description" rows="4" class="w-full px-4 py-2 border border-gray-300 dark:border-discord-light/20 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 transition bg-white dark:bg-discord-darkest dark:text-white" placeholder="Add some details...">{{ old('description') }}</textarea>
                 @error('description')
                     <p class="mt-1 text-sm text-red-500">{{ $message }}</p>
                 @enderror
             </div>
 
             <div class="mb-8">
-                <label for="priority" class="block text-sm font-semibold text-gray-700 mb-2">Priority</label>
+                <label for="priority" class="block text-sm font-semibold text-gray-700 dark:text-gray-300 mb-2">Priority</label>
                 <div class="grid grid-cols-3 gap-3">
                     <label class="cursor-pointer">
                         <input type="radio" name="priority" value="low" class="peer sr-only" {{ old('priority') == 'low' ? 'checked' : '' }}>

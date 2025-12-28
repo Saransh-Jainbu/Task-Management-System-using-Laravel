@@ -416,8 +416,6 @@ heroku run php artisan migrate
 3. Import database
 4. Update `.env` with production settings
 
-**See [DEPLOYMENT.md](./DEPLOYMENT.md) for detailed instructions.**
-
 ---
 
 ## 🎯 Usage Guide

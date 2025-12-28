@@ -1,15 +1,36 @@
 @extends('layouts.app')
 
 @section('content')
-    <div class="flex justify-between items-center mb-8">
-        <h1 class="text-3xl font-bold text-gray-900">Your Tasks</h1>
-        <div class="text-sm text-gray-500">
+    <div class="flex justify-between items-center mb-6">
+        <h1 class="text-3xl font-bold text-gray-900 dark:text-white">Your Tasks</h1>
+        <div class="text-sm text-gray-500 dark:text-gray-400">
             {{ $tasks->where('is_completed', true)->count() }} / {{ $tasks->count() }} Completed
         </div>
     </div>
 
+    <!-- Priority Filters -->
+    <div class="flex flex-wrap gap-2 mb-6">
+        <a href="{{ route('tasks.index') }}" 
+           class="px-4 py-2 rounded-lg text-sm font-medium transition {{ !request('priority') ? 'bg-indigo-600 text-white dark:bg-white dark:text-black' : 'bg-gray-100 dark:bg-discord-darker text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-discord-light' }}">
+            All
+        </a>
+        <a href="{{ route('tasks.index', ['priority' => 'low']) }}" 
+           class="px-4 py-2 rounded-lg text-sm font-medium transition {{ request('priority') === 'low' ? 'bg-green-600 text-white' : 'bg-gray-100 dark:bg-discord-darker text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-discord-light' }}">
+            Low Priority
+        </a>
+        <a href="{{ route('tasks.index', ['priority' => 'medium']) }}" 
+           class="px-4 py-2 rounded-lg text-sm font-medium transition {{ request('priority') === 'medium' ? 'bg-yellow-600 text-white' : 'bg-gray-100 dark:bg-discord-darker text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-discord-light' }}">
+            Medium Priority
+        </a>
+        <a href="{{ route('tasks.index', ['priority' => 'high']) }}" 
+           class="px-4 py-2 rounded-lg text-sm font-medium transition {{ request('priority') === 'high' ? 'bg-red-600 text-white' : 'bg-gray-100 dark:bg-discord-darker text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-discord-light' }}">
+            High Priority
+        </a>
+    </div>
+
     @if($tasks->isEmpty())
-        <div class="bg-white rounded-2xl shadow-sm border border-gray-100 p-12 text-center">
+        <div
+            class="bg-white dark:bg-gray-800 rounded-2xl shadow-sm border border-gray-100 dark:border-gray-700 p-12 text-center">
             <div class="w-20 h-20 bg-indigo-50 text-indigo-500 rounded-full flex items-center justify-center mx-auto mb-6">
                 <svg class="w-10 h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
@@ -17,18 +38,18 @@
                     </path>
                 </svg>
             </div>
-            <h3 class="text-lg font-medium text-gray-900 mb-2">No tasks yet</h3>
-            <p class="text-gray-500 mb-6">Get started by creating your first task.</p>
+            <h3 class="text-lg font-medium text-gray-900 dark:text-white mb-2">No tasks yet</h3>
+            <p class="text-gray-500 dark:text-gray-400 mb-6">Get started by creating your first task.</p>
             <a href="{{ route('tasks.create') }}"
                 class="inline-flex items-center px-4 py-2 bg-indigo-600 border border-transparent rounded-lg font-semibold text-xs text-white uppercase tracking-widest hover:bg-indigo-700 active:bg-indigo-900 focus:outline-none focus:border-indigo-900 focus:ring ring-indigo-300 disabled:opacity-25 transition ease-in-out duration-150">
                 Create Task
             </a>
         </div>
     @else
-        <div class="grid gap-4">
+        <div class="max-h-[60vh] overflow-y-auto space-y-4">
             @foreach($tasks as $task)
                 <div
-                    class="group bg-white rounded-xl shadow-sm border border-gray-100 p-5 hover:shadow-md transition-all duration-200 {{ $task->is_completed ? 'opacity-75 bg-gray-50' : '' }}">
+                    class="group bg-white dark:bg-discord-darker rounded-xl shadow-sm border border-gray-100 dark:border-discord-light/20 p-5 hover:shadow-md transition-all duration-200 {{ $task->is_completed ? 'opacity-75 bg-gray-50 dark:bg-discord-darkest' : '' }}">
                     <div class="flex items-start justify-between">
                         <div class="flex items-start space-x-4">
                             <form action="{{ route('tasks.toggle', $task) }}" method="POST">
@@ -47,16 +68,16 @@
 
                             <div>
                                 <h3
-                                    class="text-lg font-semibold {{ $task->is_completed ? 'line-through text-gray-500' : 'text-gray-900' }}">
+                                    class="text-lg font-semibold {{ $task->is_completed ? 'line-through text-gray-500 dark:text-gray-600' : 'text-gray-900 dark:text-white' }}">
                                     {{ $task->title }}
                                 </h3>
-                                <p class="text-gray-500 mt-1 text-sm line-clamp-2">{{ $task->description }}</p>
+                                <p class="text-gray-500 dark:text-gray-400 mt-1 text-sm line-clamp-2">{{ $task->description }}</p>
 
                                 <div class="flex items-center mt-3 space-x-3">
                                     <span class="px-2.5 py-0.5 rounded-full text-xs font-medium 
-                                                @if($task->priority == 'high') bg-red-100 text-red-800 
-                                                @elseif($task->priority == 'medium') bg-yellow-100 text-yellow-800 
-                                                @else bg-green-100 text-green-800 @endif">
+                                                                                    @if($task->priority == 'high') bg-red-100 text-red-800 
+                                                                                    @elseif($task->priority == 'medium') bg-yellow-100 text-yellow-800 
+                                                                                    @else bg-green-100 text-green-800 @endif">
                                         {{ ucfirst($task->priority) }}
                                     </span>
                                     <span class="text-xs text-gray-400">
