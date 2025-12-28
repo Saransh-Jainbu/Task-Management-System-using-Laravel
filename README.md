@@ -12,8 +12,7 @@ A modern, single-user Task Management System built with **Laravel 11**, **Tailwi
 ![PHP](https://img.shields.io/badge/PHP-8.4-blue?style=flat-square&logo=php)
 ![TailwindCSS](https://img.shields.io/badge/TailwindCSS-3.0-38B2AC?style=flat-square&logo=tailwind-css)
 ![License](https://img.shields.io/badge/License-MIT-green?style=flat-square)
-![Tests](https://github.com/Saransh-Jainbu/task-management-system/workflows/Laravel%20Tests/badge.svg)
-![Code Quality](https://github.com/Saransh-Jainbu/task-management-system/workflows/Code%20Quality/badge.svg)
+![MySQL](https://img.shields.io/badge/MySQL-8.0-blue?style=flat-square&logo=mysql)
 
 ---
 
@@ -66,13 +65,21 @@ A modern, single-user Task Management System built with **Laravel 11**, **Tailwi
 
 ## 📸 Screenshots
 
-### Dashboard
-![Dashboard](public/images/screenshots/dashboard.png)
-*Task listing with priority badges, completion status, and quick actions*
+### Light Mode Dashboard
+![Light Mode Dashboard](public/images/screenshots/light-mode-dashboard.png)
+*Clean task listing with priority badges and completion tracking*
 
-### Create Task
-![Create Task](public/images/screenshots/create-task.jpeg)
-*Clean form interface with priority selection and validation*
+### Dark Mode Dashboard
+![Dark Mode Dashboard](public/images/screenshots/dark-mode-dashboard.png)
+*Beautiful pure black dark theme with smooth toggle*
+
+### Create Task Form
+![Create Task Form](public/images/screenshots/create-task-form.png)
+*Intuitive form interface with priority selection*
+
+### Priority Filtering
+![Priority Filter](public/images/screenshots/priority-filter.png)
+*Filter tasks by priority level with visual feedback*
 
 ---
 
@@ -542,13 +549,7 @@ Contributions are welcome! Please follow these steps:
 
 ---
 
-## 📝 License
-
-This project is open-source and available under the [MIT License](LICENSE).
-
----
-
-## 👤 Author
+##  Author
 
 **Your Name**
 - GitHub: [@Saransh-Jainbu](https://github.com/Saransh-Jainbu/)
